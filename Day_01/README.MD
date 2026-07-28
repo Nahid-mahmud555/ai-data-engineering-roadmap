@@ -39,6 +39,14 @@ Here are the foundational building blocks and architectural terms I implemented 
 
 ---
 
+<p align="center">
+  <img src="6287107341777834794.jpg" alt="Evaluation Result" width="80%">
+</p>
+<p align="center">
+  <strong>Accuracy Rate: 100%</strong>
+</p>
+
+
 ## 📊 Verification & Evaluation Results
 
 The custom Python evaluation script successfully verified **100% match accuracy** across all benchmark queries, proving the deterministic robustness of the local retrieval pipeline:
