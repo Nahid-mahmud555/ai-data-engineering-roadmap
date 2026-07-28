@@ -25,6 +25,17 @@ Here are the foundational building blocks and architectural terms I implemented 
 
 ---
 
+<p align="center">
+  <a href="https://youtu.be/HJRp_cPPA_8" target="_blank">
+    <img src="6287107341777834794.jpg" alt="Evaluation Result" width="80%">
+  </a>
+</p>
+<p align="center">
+  <strong>Accuracy Rate: 100%</strong><br>
+  <a href="https://youtu.be/HJRp_cPPA_8" target="_blank">📺 Watch Day-01 Implementation on YouTube</a>
+</p>
+
+
 ## 🛠️ Step-by-Step Practical Execution
 
 1. **Corpus Selection:** Curated real local domain data (Chapai-Intel knowledge base covering history, geography, economy, culture, and mango ecosystems).
