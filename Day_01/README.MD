@@ -1,245 +1,93 @@
-# 🚀 Day 01 — Local RAG Pipeline, Golden Dataset & Core Concepts
+# 🚀 Day-01: Local RAG Pipeline, Golden Dataset & Core Concepts
 
-Welcome to **Day 01** of my **AI & Data Engineering Roadmap**.
-
-Today's focus was on designing and evaluating a **local Retrieval-Augmented Generation (RAG) pipeline** with a strong emphasis on:
-
-- Zero-hallucination principles
-- Provenance tracking
-- Retrieval evaluation
-- System design fundamentals
-- Deterministic validation workflows
+Welcome to **Day-01** of my **AI & Data Engineering Roadmap**! Today's milestone focuses on building a local Information Retrieval and Retrieval-Augmented Generation (RAG) evaluation pipeline from scratch, enforcing strict zero-hallucination guardrails, provenance tracking, and foundational system design principles.
 
 ---
 
-# 🧠 Core Architecture Concepts Learned
+## 🧠 Core Architecture Concepts Mastered Today
 
-## 1. Retrieval Contract (রিট্রিভাল কন্ট্রাক্ট)
+Here are the foundational building blocks and architectural terms I implemented and studied today:
 
-A formal agreement that defines what a retrieval system can and cannot do.
+1. **Retrieval Contract (রিট্রিভাল কন্ট্রাক্ট):**  
+   A strict set of system promises made by a retrieval engine—defining precisely what types of questions it can answer, which authorized sources it will draw from, its data freshness SLA, and the required level of provenance or evidence citation.
 
-It specifies:
+2. **Parametric Memory (প্যারামেট্রিক মেমোরি):**  
+   The internal knowledge stored within an LLM's weights and parameters—it operates fast but is static/fixed, its exact sources cannot be tracked natively, and updating it requires costly retraining or fine-tuning.
 
-- Supported question types
-- Authorized knowledge sources
-- Data freshness requirements (SLA)
-- Provenance and citation expectations
-- Operational boundaries
+3. **Non-parametric Memory (নন-প্যারামেট্রিক মেমোরি):**  
+   External, dynamic knowledge stored in an index or vector database that the model reads at query time—it is easily updateable, fully traceable to its original source, and simple to audit.
 
-This contract helps prevent scope creep and ensures trustworthy retrieval behavior.
+4. **Grounding (গ্রাউন্ডিং):**  
+   The mechanism of constraining an LLM's generated output strictly to the retrieved context or evidence, ensuring that every claim or answer can be directly traced back to a verified source.
 
----
-
-## 2. Parametric Memory (প্যারামেট্রিক মেমোরি)
-
-Knowledge stored directly inside an LLM's model weights.
-
-### Characteristics
-
-- Extremely fast access
-- Static after training
-- Source attribution is difficult
-- Updating requires retraining or fine-tuning
-
-### Examples
-
-- General world knowledge
-- Language understanding
-- Learned reasoning patterns
+5. **Corpus (কর্পাস):**  
+   The controlled, governed, and curated collection of documents from which a retrieval system is legally and operationally authorized to fetch answers.
 
 ---
 
-## 3. Non-Parametric Memory (নন-প্যারামেট্রিক মেমোরি)
+## 🛠️ Step-by-Step Practical Execution
 
-Knowledge stored outside the model in searchable systems such as:
+1. **Corpus Selection:** Curated real local domain data (Chapai-Intel knowledge base covering history, geography, economy, culture, and mango ecosystems).
 
-- Vector databases
-- Search indexes
-- Document stores
-- Knowledge bases
+2. **Golden Dataset Curation:** Built a benchmark of **20 real user queries** (`questions.jsonl`) mapping complex lookups and multi-hop inquiries to their ground-truth source files.
 
-### Characteristics
+3. **Retrieval Contract Design:** Defined system boundaries, operational scope, freshness SLAs, and provenance tracking rules.
 
-- Easily updateable
-- Fully traceable
-- Auditable
-- Suitable for real-time knowledge retrieval
+4. **Repository & Environment Setup:** Initialized version control (`git init`), established a modular project directory (`day_01/`), and configured local python execution environments.
 
-### Examples
-
-- Company documentation
-- Research repositories
-- Internal knowledge bases
+5. **Evaluation Script Engineering:** Developed a deterministic Python search pipeline (`search.py`) to automate retrieval validation.
 
 ---
 
-## 4. Grounding (গ্রাউন্ডিং)
+## 📊 Verification & Evaluation Results
 
-Grounding ensures that every generated answer is tied directly to retrieved evidence.
+The custom Python evaluation script successfully verified **100% match accuracy** across all benchmark queries, proving the deterministic robustness of the local retrieval pipeline:
 
-### Benefits
-
-- Reduces hallucinations
-- Improves factual accuracy
-- Enables source verification
-- Builds user trust
-
-A grounded answer should always be explainable through a specific source document.
+- **Total Queries Evaluated:** 20
+- **Successful Matches:** 20 ✅
+- **Accuracy Rate:** 100%
 
 ---
 
-## 5. Corpus (কর্পাস)
+## 💻 Terminal Commands Used Today
 
-The curated collection of documents that a retrieval system is allowed to search.
-
-### Requirements
-
-- Governed
-- Authorized
-- Structured
-- Maintainable
-
-The quality of the corpus directly influences retrieval quality.
-
----
-
-# 🛠️ Practical Execution
-
-## Step 1 — Corpus Selection
-
-Created a local knowledge base called **Chapai-Intel**, containing information about:
-
-- History
-- Geography
-- Culture
-- Transportation
-- Mango ecosystem
-- Local economy
-
----
-
-## Step 2 — Golden Dataset Creation
-
-Built a benchmark dataset containing **20 realistic user questions** stored in:
-
-```text
-questions.jsonl
-```
-
-Each query was mapped to its corresponding ground-truth source document for retrieval validation.
-
----
-
-## Step 3 — Retrieval Contract Design
-
-Defined:
-
-- Retrieval scope
-- Data ownership boundaries
-- Freshness SLAs
-- Provenance requirements
-- Evaluation expectations
-
----
-
-## Step 4 — Repository & Environment Setup
-
-Initialized the project repository and local development environment.
-
-### Actions Performed
-
-```bash
-git init
-```
-
-- Created project structure
-- Configured Python environment
-- Established version control workflow
-
----
-
-## Step 5 — Retrieval Evaluation Script
-
-Developed a deterministic retrieval validator:
-
-```text
-search.py
-```
-
-### Responsibilities
-
-- Execute retrieval queries
-- Compare results against ground truth
-- Measure retrieval accuracy
-- Generate evaluation metrics
-
----
-
-# 📊 Evaluation Results
-
-The retrieval evaluation pipeline achieved perfect benchmark performance.
-
-| Metric | Result |
-|----------|----------|
-| Total Queries | 20 |
-| Successful Matches | 20 ✅ |
-| Failed Matches | 0 ❌ |
-| Accuracy | 100% 🎯 |
-
-This validates the correctness and consistency of the local retrieval workflow.
-
----
-
-# 💻 Commands Used
-
-## Environment & Directory Setup
+### 1. Environment & Directory Setup
 
 ```bash
 cd ~/Documents
-mkdir chapai-intel-rag
-cd chapai-intel-rag
+mkdir chapai-intel-rag && cd chapai-intel-rag
 ls
 ```
 
----
-
-## File Creation & Execution
+### 2. File Creation & Execution
 
 ```bash
 nano search.py
 nano questions.jsonl
-
 python3 search.py
 ```
 
----
-
-## Git & GitHub Workflow
+### 3. Git & GitHub Workflow
 
 ```bash
 git init
 git add .
-
 git commit -m "Add Day-01: Core RAG concepts, corpus, golden set, and evaluation script"
-
 git branch -M main
-
 git remote add origin https://github.com/nahid-mahmud555/ai-data-engineering-roadmap.git
-
 git push -u origin main
 ```
 
 ---
 
-# 📂 Project Structure
+## 📂 Project Structure (Day-01)
 
-```text
+```plaintext
 day_01/
 ├── corpus/
 │   ├── history_and_geography.txt
 │   ├── mango_and_economy.txt
 │   └── culture_and_transport.txt
-│
 ├── questions.jsonl
 ├── search.py
 └── README.md
@@ -247,63 +95,22 @@ day_01/
 
 ---
 
-# 📚 Reading & Research
+## 📚 Reading & Research Bibliography
 
-## RAG Fundamentals
+### RAG Fundamentals
 
-- Retrieval-Augmented Generation from First Principles
+- Retrieval-Augmented Generation from First Principles.
 
-## Research Papers
+### Foundational Papers
 
-### Lewis et al. (2020)
+- Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks (Lewis et al., 2020).
 
-**Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks**
+- Retrieval-Augmented Generation for Large Language Models: A Survey (Gao et al., 2023).
 
-**Key Contribution:**
-Introduced the original RAG framework that combines retrieval systems with large language models.
+### Data Engineering Foundation
 
----
-
-### Gao et al. (2023)
-
-**Retrieval-Augmented Generation for Large Language Models: A Survey**
-
-**Key Contribution:**
-Comprehensive survey covering retrieval architectures, evaluation methodologies, and future directions.
+- Fundamentals of Data Engineering (Joe Reis & Matt Housley).
 
 ---
 
-## Data Engineering Foundation
-
-**Fundamentals of Data Engineering**  
-*Joe Reis & Matt Housley*
-
-### Focus Areas
-
-- Data lifecycle
-- Data architecture
-- Pipeline design
-- Operational excellence
-
----
-
-# 🎯 Day 01 Outcome
-
-✅ Built a local knowledge corpus
-
-✅ Created a golden evaluation dataset
-
-✅ Designed a retrieval contract
-
-✅ Implemented deterministic retrieval validation
-
-✅ Achieved 100% benchmark accuracy
-
-✅ Established foundational RAG and Data Engineering concepts
-
----
-
-## 👨‍💻 Maintained By
-
-**Nahid Mahmud**  
-*AI & Data Engineering Roadmap Journey*
+**Maintained by Nahid Mahmud**
