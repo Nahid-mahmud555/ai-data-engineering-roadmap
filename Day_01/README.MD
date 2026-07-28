@@ -49,6 +49,13 @@ Here are the foundational building blocks and architectural terms I implemented 
   <a href="https://youtu.be/HJRp_cPPA_8" target="_blank">📺 Watch Day-01 Implementation on YouTube</a>
 </p>
 
+### 📝 Read My Latest Article
+<p align="left">
+  <a href="https://nahid-mahmud555.hashnode.dev/architecting-foundations-my-day-01-hands-on-journey-into-ai-data-engineering?utm_source=hashnode&utm_medium=feed" target="_blank">
+    📖 <strong>Architecting Foundations: My Day-01 Hands-On Journey into AI & Data Engineering</strong>
+  </a>
+</p>
+
 
 ## 📊 Verification & Evaluation Results
 
