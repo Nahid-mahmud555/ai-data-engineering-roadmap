@@ -112,6 +112,23 @@ AVERAGE SYSTEM RECALL@10 ACROSS 20 QUERIES: 98.00%
 Baseline Performance: 98.00% Recall@10
 ```
 
+## 📸 Project Screenshots
+
+<p align="center">
+  <img src="./Screenshot_2026-07-29_16_20_18.png" alt="Screenshot 1" width="900">
+</p>
+
+<p align="center">
+  <img src="./Screenshot_2026-07-29_16_23_25.png" alt="Screenshot 2" width="900">
+</p>
+
+<p align="center">
+  <img src="./Screenshot_2026-07-29_16_26_22.png" alt="Screenshot 3" width="900">
+</p>
+
+
+
+
 ---
 
 ## ⚙️ How to Run
