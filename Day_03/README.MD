@@ -125,6 +125,10 @@ exit
 
 ---
 
+### 📖 Read the Full Article
+For a detailed step-by-step breakdown of the architecture, engineering decisions, and implementation logic, check out my published article on Hashnode:
+👉 [Building a Production-Grade RAG Pipeline from Scratch: Granularity, Stable IDs, and Parent-Child Linkages](https://nahid-mahmud555.hashnode.dev/building-a-production-grade-rag-pipeline-from-scratch-granularity-stable-ids-and-parent-child-linkages?utm_source=hashnode&utm_medium=feed)
+
 ## 🎯 Key Learning Outcomes
 
 - Evaluated the impact of chunk granularity on retrieval performance.
