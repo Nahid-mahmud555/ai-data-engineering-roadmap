@@ -1,0 +1,1 @@
+Every chunk ID must be generated deterministically using an MD5 hash combining the source filename, section title, and paragraph index (e.g., hash(source_uri + section_name + paragraph_id)), ensuring IDs survive minor re-indexing updates and support reliable source citations.

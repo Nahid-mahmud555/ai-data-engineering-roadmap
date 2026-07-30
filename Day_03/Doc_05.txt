@@ -1,0 +1,9 @@
+Modern Space Exploration
+Milestones in Interplanetary Travel
+Space exploration has entered a revolutionary era driven by reusable launch vehicles, commercial aerospace ventures, and ambitious international missions targeting the Moon and Mars. These technological leaps drastically reduce the cost per kilogram of payload sent into orbit.
+
+Extraterrestrial Habitats and Rovers
+Autonomous rovers equipped with advanced spectroscopic sensors currently explore Martian terrain to detect past biosignatures and analyze geological compositions. Meanwhile, space agencies are actively designing sustainable life-support systems for future crewed lunar outposts.
+
+Orbital Debris and Space Traffic
+As low Earth orbit becomes increasingly congested with commercial satellites and operational debris, space traffic management has become a paramount concern. Developing active debris removal technologies is essential to safeguard active orbital infrastructure from catastrophic collisions.

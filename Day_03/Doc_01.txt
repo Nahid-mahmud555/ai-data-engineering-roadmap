@@ -1,0 +1,9 @@
+Artificial Intelligence Overview
+Introduction to Modern AI Systems
+Artificial Intelligence (AI) refers to the simulation of human intelligence in machines programmed to think, learn, and solve complex problems. Modern AI systems have transformed industries by automating repetitive tasks and uncovering hidden patterns in massive datasets.
+
+Machine Learning and Deep Learning
+At the core of AI lies Machine Learning (ML), a subset that allows systems to learn from data without being explicitly programmed. Deep Learning takes this a step further by utilizing multi-layered artificial neural networks inspired by the human brain. These neural networks process high-dimensional inputs such as images, audio, and raw text with remarkable accuracy.
+
+Ethics and Future Challenges
+Despite rapid advancements, AI deployment introduces critical challenges, including data privacy risks, algorithmic bias, and high computational costs. Ensuring ethical governance and transparency remains essential for sustainable AI integration across global infrastructure.

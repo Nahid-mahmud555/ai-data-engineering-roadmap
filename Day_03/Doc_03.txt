@@ -1,0 +1,9 @@
+Cybersecurity Principles
+The CIA Triad Foundation
+Cybersecurity is the practice of protecting systems, networks, programs, and sensitive data from digital cyberattacks. The foundational framework of information security relies on the CIA Triad: Confidentiality, Integrity, and Availability.
+
+Threat Vectors and Vulnerabilities
+Modern digital environments face diverse threat vectors, ranging from sophisticated ransomware and malware to social engineering tactics like phishing. Attackers constantly exploit unpatched software vulnerabilities, misconfigured cloud storage buckets, and weak authentication protocols to breach corporate perimeters.
+
+Defense Mechanisms and Mitigation
+Mitigating these risks requires a multi-layered defense-in-depth strategy. Organizations implement continuous vulnerability assessments, zero-trust network architectures, multi-factor authentication (MFA), and automated intrusion detection systems to neutralize threats before catastrophic data leakage occurs.

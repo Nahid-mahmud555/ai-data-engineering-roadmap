@@ -1,0 +1,9 @@
+Cloud Computing Fundamentals
+Core Architecture and Models
+Cloud computing delivers on-demand computing services—including storage, servers, databases, networking, and software—over the internet. Organizations leverage cloud architecture to avoid the heavy capital expense of building and maintaining physical data centers.
+
+Deployment and Service Models
+Cloud services are primarily categorized into three operational models: Infrastructure as a Service (IaaS), Platform as a Service (PaaS), and Software as a Service (SaaS). Additionally, deployment strategies span across public clouds, private clouds, and hybrid configurations to optimize workload security and operational flexibility.
+
+Scalability and Cost Management
+One of the primary drivers of cloud adoption is dynamic scalability. Businesses can instantly provision or de-provision resources based on real-time demand, ensuring optimal performance while maintaining strict financial control through pay-as-you-go pricing structures.
