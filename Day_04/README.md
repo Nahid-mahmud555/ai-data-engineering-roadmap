@@ -36,3 +36,9 @@ To catch variations of words during text search, two distinct linguistic approac
 
 ## 5. Applied Engineering: Corpus Token Distribution Analysis
 As part of our practical implementation, we constructed a script utilizing real-world tokenizers (`tiktoken` with `cl100k_base` encoding) across a diverse corpus of 20 documents containing code snippets, SQL queries, Markdown tables, and structured text to measure, analyze, and visualize token length distributions.
+
+
+> 📖 **Read the full detailed article here:** 
+> [Deep-Dive into LLM Plumbing: Tokenization, Normalization, and RAG Architecture Mechanics](https://nahid-mahmud555.hashnode.dev/deep-dive-into-llm-plumbing-tokenization-normalization-and-rag-architecture-mechanics?utm_source=hashnode&utm_medium=feed)
+
+---
