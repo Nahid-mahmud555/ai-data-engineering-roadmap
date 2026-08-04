@@ -1,0 +1,23 @@
+Building a Production-Grade Document Parsing Pipeline: From Concept to Execution
+
+Today was an incredible hands-on journey into the backbone of RAG systems—Data Ingestion and Document Parsing. Most LLM applications fail not due to model limitations, but because of poor data quality at ingestion ("Garbage In, Garbage Out").
+
+Here is what I learned and implemented today to solve this challenge using IBM Docling:
+
+💡 Key Concepts Mastered Today:
+
+    Layout Analysis & Reading Order: Understanding how to reconstruct logical human reading order from visually complex, multi-column pages instead of letting naive parsers create scrambled "Word Salad".
+
+    TableFormer: Exploring IBM's deep-learning vision model that recovers complex table rows, columns, and headers into clean Markdown without brittle RegEx heuristics.
+
+    OCR Integration: Handling scanned documents or image-based pages where no digital text layer exists.
+
+    Parse-Quality Gate: Implementing an automated safety shield using character yield, table count, and symbol/gibberish ratios to quarantine corrupted documents before they pollute downstream vector databases.
+
+🛠️ What I Built & Executed Today:
+
+    Environment Setup: Configured an automated Python pipeline using Docling and RapidOCR in a live Colab environment to process complex multi-column PDFs.
+
+    Corpus Processing: Tested and parsed hard corpus PDFs, extracting clean structured Markdown.
+
+    Automated Quality Control: Wrote and tested a quality gate function that successfully evaluates text density and isolates rejected files into a structured.
