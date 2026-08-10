@@ -31,6 +31,22 @@ When testing with a custom corpus and query (e.g., searching for `"love"` among 
 
 ---
 
+
+---
+
+## 📸 Project Execution & Visual Proofs
+
+Here are some snapshots of the code running successfully and displaying vector metrics, similarity scores, and dimensional data:
+
+<p align="center">
+  <img src="6327685995221948717.jpg" width="30%" alt="Execution Step 1"/>
+  <img src="6327685995221948718.jpg" width="30%" alt="Execution Step 2"/>
+  <img src="6327685995221948720.jpg" width="30%" alt="Execution Step 3"/>
+</p>
+
+---
+
+
 ## 💻 Tech Stack & Libraries
 * **Python**
 * **Sentence-Transformers** (for generating AI embeddings)
