@@ -46,6 +46,17 @@ Here are some snapshots of the code running successfully and displaying vector m
 
 ---
 
+---
+
+## 🔗 Project Resources & Read More
+
+If you want to dive deeper into the concepts or see the code in action, check out these links:
+
+*   **📖 Read the Full Article:** [Demystifying Vector Search - Hashnode](https://nahid-mahmud555.hashnode.dev/how-computers-read-and-match-text-a-quick-vector-search-experiment?utm_source=hashnode&utm_medium=feed)
+*   **🎥 Watch the Demo:** [Vector Search in Action - YouTube](https://youtu.be/HEPmlnrMXW8?si=6ofAATosXB86EzB3)
+
+---
+
 
 ## 💻 Tech Stack & Libraries
 * **Python**
