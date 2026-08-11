@@ -51,6 +51,24 @@ This project builds a custom corpus pipeline where you can test, compare, and un
 
 ---
 
+
+
+## 🎥 Demonstration Video
+Check out the full lab walkthrough and live testing here:
+[**Watch the Demo on YouTube**](https://youtu.be/OBLi92MXe4k)
+
+---
+
+## 📸 Lab Visuals & Interface
+Here is how the search engine lab looks and performs:
+
+| Corpus Input Interface | Search Execution | Detailed Ranking Breakdown |
+| :---: | :---: | :---: |
+| ![Corpus Input](Screenshot_2026-08-11_10_44_48.png) | ![Search Execution](Screenshot_2026-08-11_10_45_30.png) | ![Ranking Analysis](Screenshot_2026-08-11_10_46_11.png) |
+
+---
+
+
 ## 💻 Tech Stack Used
 * **Python** 🐍
 * **Streamlit** (for interactive web dashboard) / **IPyWidgets** (for Colab execution)
