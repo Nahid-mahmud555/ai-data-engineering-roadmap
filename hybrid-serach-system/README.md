@@ -51,11 +51,10 @@ This project builds a custom corpus pipeline where you can test, compare, and un
 
 ---
 
-
-
-## 🎥 Demonstration Video
-Check out the full lab walkthrough and live testing here:
-[**Watch the Demo on YouTube**](https://youtu.be/OBLi92MXe4k)
+## 🎥 Demonstration & Article
+Check out the full lab walkthrough and read the detailed article below:
+* [**🎥 Watch the Demo on YouTube**](https://youtu.be/OBLi92MXe4k)
+* [**✍️ Read the Hashnode Article**](https://nahid-mahmud555.hashnode.dev/building-a-hybrid-search-engine-from-scratch-combining-bm25-vector-search-and-rrf?utm_source=hashnode&utm_medium=feed)
 
 ---
 
