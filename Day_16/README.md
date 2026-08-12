@@ -61,9 +61,7 @@ In vector search engineering, quality isn't evaluated using human labels or subj
 
 ---
 
-# 🚀 Deep Dive into Vector Search: ANN, HNSW, and Production Optimization
-
-[![Read on Hashnode](https://img.shields.io/badge/Read%2BArticle-Hashnode-%232962FF?style=f
+[Read the full article on Hashnode](https://nahid-mahmud555.hashnode.dev/deep-dive-into-vector-search-ann-hnsw-and-production-optimization?utm_source=hashnode&utm_medium=feed)
 
 
 ## 💡 Key Takeaway
