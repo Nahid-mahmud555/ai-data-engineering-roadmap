@@ -1,6 +1,6 @@
 # 🚀 Hybrid Search Engine Lab: Vector vs. BM25 vs. Hybrid (RRF)
 
-An interactive practical lab and implementation demonstrating the comparison and combination of **Lexical Search (BM25)**, **Semantic Search (Vector Embeddings)**, and **Hybrid Search** using **Reciprocal Rank Fusion (RRF)** in Python. ok
+An interactive practical lab and implementation demonstrating the comparison and combination of **Lexical Search (BM25)**, **Semantic Search (Vector Embeddings)**, and **Hybrid Search** using **Reciprocal Rank Fusion (RRF)** in Python.
 
 ---
 
