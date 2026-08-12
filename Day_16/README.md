@@ -61,5 +61,10 @@ In vector search engineering, quality isn't evaluated using human labels or subj
 
 ---
 
+# 🚀 Deep Dive into Vector Search: ANN, HNSW, and Production Optimization
+
+[![Read on Hashnode](https://img.shields.io/badge/Read%2BArticle-Hashnode-%232962FF?style=f
+
+
 ## 💡 Key Takeaway
 Engineering scalable systems is all about striking the right balance between **Speed, Memory, and Precision**. Mastering these vector database internals is a massive step toward building robust, production-grade AI applications!
