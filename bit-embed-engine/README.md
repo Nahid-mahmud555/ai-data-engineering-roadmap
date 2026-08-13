@@ -62,6 +62,20 @@ When querying **`"i love python"`** against stored sentences, the system perform
 
 ---
 
+
+---
+
+## 📖 Learn More
+Check out the deep-dive article I wrote about this project:
+[AI Needs Floats, But Servers Need Binary!](https://nahid-mahmud555.hashnode.dev/ai-needs-complex-float-numbers-to-think-but-servers-need-0-and-1-to-survive?utm_source=hashnode&utm_medium=feed)
+
+## 🎥 Watch the Demo
+See the engine in action here:
+[YouTube Demo: BitEmbed Engine](https://youtu.be/QW0lREO-5uw)
+
+---
+
+
 ## 👨‍💻 Created By
 
 **Nahid Mahmud**
