@@ -232,6 +232,15 @@ Keep this extremely confidential and never share it on public channels."
 
 ---
 
+---
+
+## 🎥 Watch the Project Walkthrough
+Check out the complete video walkthrough and live demonstration of how this secure RAG pipeline works:  
+👉 **[Watch on YouTube](https://youtu.be/Ox74ebm1TNM)**
+
+---
+
+
 # 🔐 Security Benefits
 
 ✅ Prevents accidental credential leakage
