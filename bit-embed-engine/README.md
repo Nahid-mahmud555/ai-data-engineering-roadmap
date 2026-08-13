@@ -21,26 +21,47 @@ An interactive Python-based simulator built in Google Colab to explore how moder
 
 ## ⚡ How It Works (Live Output Snippet)
 
-When querying **`"i love python"`** against stored sentences, the system performs binary quantization and calculates the bit-level Hamming distance instantly:
+When querying **`"i love python"`** against stored sentences, the system performs binary quantization and instantly computes bit-level Hamming distances to identify the closest matches.
 
 ```text
 🔍 Query: "i love python"
    🔸 Query Binary: 0000101110011110...
 
-🏆 Top Results (Closest to Farthest):
+🏆 Top Results (Closest → Farthest)
+
    [1] Matching Sentence: "i love python"
-       • Hamming Distance (Different Bits): 0 🎯 (Exact Match)
+       • Hamming Distance: 0 🎯 (Exact Match)
+
    [2] Matching Sentence: "i love bangladesh"
-       • Hamming Distance (Different Bits): 150 
+       • Hamming Distance: 150
+
    [3] Matching Sentence: "hello world"
-       • Hamming Distance (Different Bits): 166
+       • Hamming Distance: 166
+```
 
 ---
-# How to Run
-1. Open a new notebook in Google Colab.
 
- 2. Copy the Python script from this repository into a cell.
+## 🚀 How to Run
 
-  3. Run the cell, input a few sentences, type DONE, and start searching!
+1. Open a new notebook in **Google Colab**.
+2. Copy the Python script from this repository into a notebook cell.
+3. Run the cell and enter a few sample sentences.
+4. Type **`DONE`** when you finish adding sentences.
+5. Enter a search query and watch the binary vector search engine retrieve the closest matches in real time.
 
-## Created by Nahid Mahmud
+---
+
+## 🎯 Key Concepts Demonstrated
+
+- Sentence Embeddings
+- Binary Quantization
+- Hamming Distance Search
+- Approximate Nearest Neighbor Retrieval
+- Semantic Similarity Matching
+- Vector-Based Information Retrieval
+
+---
+
+## 👨‍💻 Created By
+
+**Nahid Mahmud**
