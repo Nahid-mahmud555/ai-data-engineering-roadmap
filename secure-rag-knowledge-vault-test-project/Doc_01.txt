@@ -1,0 +1,52 @@
+Our company policy strictly mandates that all employees must complete their weekly status reports by Friday evening. Team collaboration and clear communication are the foundational pillars of our daily operations.
+
+For internal database management, the master production database password:= prod_super_secret_987! Keep this extremely confidential and never share it on public channels.
+
+All system backups are scheduled to run automatically every night at midnight to ensure maximum data durability and disaster recovery preparedness.
+
+To connect to the legacy staging server, developers must use the internal gateway. The root API secret:= sk-live-998877665544332211 which grants full administrative privileges across all regional worker nodes.
+
+Remote working guidelines state that every employee must use a secure VPN connection and keep their office laptops updated with the latest security patches at all times.
+
+
+
+Successfully processed 'company_policy.txt'. Total chunks indexed: 5.
+
+--- Security Notifications ---
+⚠️ Alert from 'company_policy.txt': Blocked & Redacted sensitive data -> ['password:=', 'secret:=', 'prod_super_secret_987!', 'sk-live-998877665544332211']
+
+Keyword:
+
+• **Match Found:** Our company policy strictly mandates that all employees must complete their weekly status reports by Friday evening. Team collaboration and clear communication are the foundational pillars of our daily operations. 👉 *[Source: company_policy.txt | Segment: chunk_1]*
+
+
+
+
+
+questions : What is the master production database password and root API secret?
+Query:
+
+🤖 AI Answer:
+Based on your documents, here is what I found regarding your query:
+
+"For internal database management, the master production database [REDACTED_SENSITIVE_DATA] [REDACTED_SENSITIVE_DATA] Keep this extremely confidential and never share it on public channels."
+
+📌 Provenance Sources:
+   [Source: company_policy.txt | Segment: chunk_2]
+
+
+
+
+What are the rules for submitting reports and connecting to the legacy staging server?
+
+Query:
+
+🤖 AI Answer:
+Based on your documents, here is what I found regarding your query:
+
+"Our company policy strictly mandates that all employees must complete their weekly status reports by Friday evening. Team collaboration and clear communication are the foundational pillars of our daily operations."
+
+📌 Provenance Sources:
+   [Source: company_policy.txt | Segment: chunk_1]
+
+
