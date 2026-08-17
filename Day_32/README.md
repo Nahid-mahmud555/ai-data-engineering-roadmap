@@ -414,3 +414,27 @@ WORKS_ON
 ### Key Takeaway
 
 Neo4j allows developers to model real-world entities and relationships naturally. Instead of performing complex SQL JOINs, Cypher enables intuitive graph traversals using visual patterns, making connected-data applications such as social networks, recommendation systems, fraud detection, knowledge graphs, and GraphRAG systems significantly easier to build.
+
+## 🤝 Contributing & Source Code
+
+The complete source code for this project is available in this repository.
+
+If you'd like to explore the implementation, learn from the codebase, or run the project locally, feel free to clone and experiment with it.
+
+Contributions are always welcome. You can help improve the project by:
+
+- Fixing bugs
+- Improving UI/UX
+- Adding new features
+- Optimizing Cypher queries
+- Enhancing Neo4j integrations
+- Improving documentation
+- Refactoring code for better performance
+
+If you have ideas to make the platform more advanced, scalable, or visually appealing, feel free to open an Issue or submit a Pull Request.
+
+Every contribution, no matter how small, helps make the project better for everyone.
+
+⭐ If you find this project useful, consider giving the repository a star and sharing it with others.
+
+Together, we can build a more powerful and feature-rich platform.
