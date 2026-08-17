@@ -438,6 +438,9 @@ WORKS_ON
 
 Neo4j allows developers to model real-world entities and relationships naturally. Instead of performing complex SQL JOINs, Cypher enables intuitive graph traversals using visual patterns, making connected-data applications such as social networks, recommendation systems, fraud detection, knowledge graphs, and GraphRAG systems significantly easier to build.
 
+[Read the full article on Hashnode](https://nahid-mahmud555.hashnode.dev/why-i-built-a-simple-browser-based-cypher-terminal?utm_source=hashnode&utm_medium=feed)
+
+
 ## 🤝 Contributing & Source Code
 
 The complete source code for this project is available in this repository.
