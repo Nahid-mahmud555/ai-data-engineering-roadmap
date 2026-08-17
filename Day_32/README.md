@@ -13,17 +13,17 @@ This learning session focused on understanding the fundamentals of **Neo4j Graph
 <tr>
 <td align="center">
 <img src="https://raw.githubusercontent.com/Nahid-mahmud555/ai-data-engineering-roadmap/main/Day_32/Screenshot%202026-08-17%20at%2022-33-46%20Cypher%20Learning%20Terminal.png" width="300"/><br>
-<b>Creating Nodes</b>
+<b>Web Interface </b>
 </td>
 
 <td align="center">
 <img src="https://raw.githubusercontent.com/Nahid-mahmud555/ai-data-engineering-roadmap/main/Day_32/Screenshot%202026-08-17%20at%2022-34-34%20Cypher%20Learning%20Terminal.png" width="300"/><br>
-<b>Creating Relationships</b>
+<b>Creating Nodes</b>
 </td>
 
 <td align="center">
 <img src="https://raw.githubusercontent.com/Nahid-mahmud555/ai-data-engineering-roadmap/main/Day_32/Screenshot%202026-08-17%20at%2022-42-29%20Cypher%20Learning%20Terminal.png" width="300"/><br>
-<b>Path Traversal Query</b>
+<b>Results</b>
 </td>
 </tr>
 </table>
