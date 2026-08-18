@@ -7,7 +7,7 @@ This learning session focused on understanding the fundamentals of **Neo4j Graph
 ---
 
 
-## 📸 Cypher Learning Session Screenshotsgfd
+## 📸 Cypher Learning Session Screenshots
 
 <table align="center">
 <tr>
