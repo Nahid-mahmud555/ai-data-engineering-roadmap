@@ -25,20 +25,7 @@ Traditional search algorithms scan sequentially, but HNSW builds a multi-layer s
 2. **Middle Layers (Regional):** Intermediate routing steps to narrow down proximity.
 3. **Bottom Layer (Base):** Dense graph containing all data points, ensuring precise final nearest neighbor identification.
 
----
 
-## 💻 Getting Started
-
-To run this project locally, simply clone the repository and open the file in your web browser:
-
-\`\`\`bash
-git clone https://github.com/nahid-mahmud555/hnsw-multilayer-explorer.git
-cd hnsw-multilayer-explorer
-\`\`\`
-
-Open \`index.html\` (or your main application file) in any modern browser to start exploring!
-
----
 
 ## 💡 Purpose
 
