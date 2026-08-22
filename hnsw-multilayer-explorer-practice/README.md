@@ -4,20 +4,16 @@ An interactive web-based visualizer built to demonstrate the internal mechanics 
 
 Designed for beginners, students, and developers to intuitively understand how vector databases route and retrieve high-dimensional data in milliseconds.
 
----
-
-## 📸 Interface Previews
-
 <p align="center">
   <table border="0">
     <tr>
       <td align="center" width="50%">
-        <img src="hnsw-multilayer-explorer-practice/Screenshot%202026-08-22%20at%2019-34-17%20HNSW%20Multi-Layer%20Explorer%20practice.png" alt="HNSW Explorer Preview 1" width="100%"/>
+        <img src="https://raw.githubusercontent.com/Nahid-mahmud555/ai-data-engineering-roadmap/main/hnsw-multilayer-explorer-practice/Screenshot%202026-08-22%20at%2019-34-17%20HNSW%20Multi-Layer%20Explorer%20practice.png" alt="HNSW Explorer Preview 1" width="100%"/>
         <br>
         <em>Node M-Links & Layer Inspection</em>
       </td>
       <td align="center" width="50%">
-        <img src="hnsw-multilayer-explorer-practice/Screenshot%202026-08-22%20at%2019-34-33%20HNSW%20Multi-Layer%20Explorer%20practice.png" alt="HNSW Explorer Preview 2" width="100%"/>
+        <img src="https://raw.githubusercontent.com/Nahid-mahmud555/ai-data-engineering-roadmap/main/hnsw-multilayer-explorer-practice/Screenshot%202026-08-22%20at%2019-34-33%20HNSW%20Multi-Layer%20Explorer%20practice.png" alt="HNSW Explorer Preview 2" width="100%"/>
         <br>
         <em>Live Search Traversal & Querying</em>
       </td>
@@ -25,7 +21,7 @@ Designed for beginners, students, and developers to intuitively understand how v
   </table>
 </p>
 
----
+
 
 ## 🚀 Features
 
