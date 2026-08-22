@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HNSW Multi-Layer Explorer practice</title>
+    <style>
+        :root {
+            --bg-color: #fdfbf7;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --primary: #6366f1;
+            --primary-hover: #4f46e5;
+            --border-color: #e2e8f0;
+            --canvas-bg: #f8fafc;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
+
+        .app-container {
+            max-width: 1050px;
+            margin: 30px auto;
+            padding: 30px;
+            background: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.08);
+            border: 1px solid var(--border-color);
+        }
+
+        h2 { text-align: center; color: var(--primary); margin-bottom: 5px; font-weight: 700; }
+        p.subtitle { text-align: center; color: var(--text-muted); font-size: 14px; margin-bottom: 25px; }
+
+        .step-section { display: none; }
+        .active-step { display: block; }
+
+        label { display: block; margin-top: 15px; font-weight: 600; color: var(--text-main); font-size: 14px; }
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 6px;
+            background: #fff;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            border-radius: 10px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+        input[type="range"] { width: 100%; margin-top: 10px; accent-color: var(--primary); }
+
+        .btn {
+            margin-top: 20px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        }
+        .btn:hover { background: var(--primary-hover); transform: translateY(-1px); }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        canvas {
+            display: block;
+            background: var(--canvas-bg);
+            border-radius: 14px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+        }
+
+        .sidebar-panel {
+            background: #fdfbf7;
+            padding: 18px;
+            border-radius: 14px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .log-box {
+            background: #ffffff;
+            padding: 12px;
+            border-radius: 10px;
+            height: 220px;
+            overflow-y: auto;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 12px;
+            color: #4f46e5;
+            border: 1px solid var(--border-color);
+            line-height: 1.6;
+        }
+
+        .layer-badge {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            background: #eef2ff;
+            color: var(--primary);
+            margin-bottom: 12px;
+            border: 1px solid #c7d2fe;
+        }
+
+        .layer-btn {
+            padding: 7px 14px;
+            font-size: 12px;
+            font-weight: 600;
+            margin: 0 3px;
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .layer-btn:hover, .layer-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+
+<div class="app-container">
+    <h2>✨ HNSW Multi-Layer Explorer practice</h2>
+    <p class="subtitle">Click any node on the graph to inspect its M-connections. Run searches to inspect live ef_search filtering!</p>
+
+    <!-- STEP 1: Input Words -->
+    <div id="step1" class="step-section active-step">
+        <h3>Step 1: Input Dataset Vocabulary</h3>
+        <label>Provide comma-separated keywords for vector node mapping:</label>
+        <textarea id="wordsInput" rows="4">Python, Java, C++, JavaScript, MachineLearning, DeepLearning, AI, NeuralNetworks, Cricket, Football, Supabase, Cloud, DevSecOps, Docker, Kubernetes</textarea>
+        <button class="btn" onclick="initGraphNodes()">Generate Nodes & Proceed</button>
+    </div>
+
+    <!-- STEP 2: Set Parameters -->
+    <div id="step2" class="step-section">
+        <h3>Step 2: Configure HNSW Hyperparameters</h3>
+        
+        <label>M (Max Connections per Node): <span id="mVal" style="color: var(--primary); font-weight:bold;">4</span></label>
+        <input type="range" id="mInput" min="2" max="8" value="4" oninput="document.getElementById('mVal').innerText=this.value">
+
+        <label>ef_construction (Index Build Depth):</label>
+        <input type="text" id="efConstInput" value="128">
+
+        <label>ef_search (Runtime Exploration Scope):</label>
+        <input type="text" id="efSearchInput" value="32">
+
+        <button class="btn" onclick="buildHNSWLayers()">Build Graph Architecture</button>
+    </div>
+
+    <!-- STEP 3: Live Canvas & Search Simulation -->
+    <div id="step3" class="step-section">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div id="layerIndicator" class="layer-badge">Top Expressway Layer</div>
+            <div>
+                <button class="layer-btn active" id="btnLayer2" onclick="switchLayer(2)">Top Expressway</button>
+                <button class="layer-btn" id="btnLayer1" onclick="switchLayer(1)">Middle Regional</button>
+                <button class="layer-btn" id="btnLayer0" onclick="switchLayer(0)">Bottom Base</button>
+            </div>
+        </div>
+
+        <div class="dashboard-grid">
+            <canvas id="simCanvas" width="640" height="400" onclick="handleCanvasClick(event)"></canvas>
+            
+            <div class="sidebar-panel">
+                <div>
+                    <label style="margin-top:0;">Query Search Input:</label>
+                    <input type="text" id="searchBox" placeholder="e.g. AI, Python, Cloud...">
+                    <button class="btn" style="margin-top: 10px;" onclick="executeTraversalSearch()">Run Search Traversal</button>
+                </div>
+
+                <div>
+                    <label>Live Routing Diagnostic Log:</label>
+                    <div id="logBox" class="log-box">System ready. Click any node to inspect M-links or run a query!</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    let words = [];
+    let nodes = [];
+    let M = 4;
+    let efSearch = 32;
+    let efConst = 128;
+    let currentLayer = 2; // 2: Top, 1: Middle, 0: Bottom
+    let canvas, ctx;
+    let searching = false;
+    let traversalPath = [];
+    let pathAnimIndex = 0;
+    let finalTargetId = null;
+    let clickedNodeId = null;
+
+    function initGraphNodes() {
+        let rawText = document.getElementById('wordsInput').value;
+        words = rawText.split(',').map(w => w.trim()).filter(w => w.length > 0);
+        
+        if(words.length < 5) {
+            alert('Please enter at least 5 words!');
+            return;
+        }
+
+        // Properly assign max layers: 
+        // A few nodes exist in Layer 2 (Top), more in Layer 1 (Middle), all in Layer 0 (Bottom)
+        nodes = words.map((word, i) => {
+            let assignedMaxLayer = 0;
+            if (i < 4) assignedMaxLayer = 2;       // First few nodes reach up to Top Expressway (Layer 2)
+            else if (i < 9) assignedMaxLayer = 1;  // Next batch reach up to Middle Regional (Layer 1)
+            else assignedMaxLayer = 0;             // Remaining exist only in Bottom Base (Layer 0)
+
+            return {
+                id: i,
+                word: word,
+                x: Math.random() * 500 + 70,
+                y: Math.random() * 300 + 50,
+                vx: (Math.random() - 0.5) * 0.4,
+                vy: (Math.random() - 0.5) * 0.4,
+                maxLayer: assignedMaxLayer,
+                connections: { 2: [], 1: [], 0: [] }
+            };
+        });
+
+        document.getElementById('step1').classList.remove('active-step');
+        document.getElementById('step2').classList.add('active-step');
+    }
+
+    function buildHNSWLayers() {
+        M = parseInt(document.getElementById('mInput').value);
+        efConst = parseInt(document.getElementById('efConstInput').value);
+        efSearch = parseInt(document.getElementById('efSearchInput').value);
+        
+        // Build links for each layer independently based on nodes present in that layer or above
+        [0, 1, 2].forEach(layer => {
+            let activeNodes = nodes.filter(n => n.maxLayer >= layer);
+            if(activeNodes.length === 0) activeNodes = nodes;
+
+            activeNodes.forEach(node => {
+                let distances = activeNodes
+                    .filter(n => n.id !== node.id)
+                    .map(n => ({ id: n.id, dist: Math.hypot(n.x - node.x, n.y - node.y) }));
+                
+                distances.sort((a, b) => a.dist - b.dist);
+                let connLimit = Math.min(M, distances.length);
+                node.connections[layer] = distances.slice(0, connLimit).map(d => d.id);
+            });
+        });
+
+        document.getElementById('step2').classList.remove('active-step');
+        document.getElementById('step3').classList.add('active-step');
+
+        canvas = document.getElementById('simCanvas');
+        ctx = canvas.getContext('2d');
+
+        requestAnimationFrame(renderLoop);
+    }
+
+    function switchLayer(layerNum) {
+        currentLayer = layerNum;
+        let names = { 
+            2: "Top Expressway Layer (Sparse Global Links)", 
+            1: "Middle Regional Layer (Sub-Cluster Hubs)", 
+            0: "Bottom Base Layer (Full Dense Vector Space)" 
+        };
+        document.getElementById('layerIndicator').innerText = names[layerNum];
+
+        document.querySelectorAll('.layer-btn').forEach(btn => btn.classList.remove('active'));
+        if(layerNum === 2) document.getElementById('btnLayer2').classList.add('active');
+        if(layerNum === 1) document.getElementById('btnLayer1').classList.add('active');
+        if(layerNum === 0) document.getElementById('btnLayer0').classList.add('active');
+    }
+
+    // Handle clicking a node to inspect its connections for the CURRENT active layer
+    function handleCanvasClick(event) {
+        const rect = canvas.getBoundingClientRect();
+        const mouseX = event.clientX - rect.left;
+        const mouseY = event.clientY - rect.top;
+
+        // Find clicked node that exists in current layer view
+        let clicked = nodes.find(n => Math.hypot(n.x - mouseX, n.y - mouseY) < 15 && n.maxLayer >= currentLayer);
+        
+        if (clicked) {
+            clickedNodeId = clicked.id;
+            let connectedWordsId = clicked.connections[currentLayer] || [];
+            let connectedNames = connectedWordsId.map(id => nodes.find(n => n.id === id).word).join(', ');
+
+            let layerTitleMap = { 2: "Top Expressway Layer", 1: "Middle Regional Layer", 0: "Bottom Base Layer" };
+
+            let logBox = document.getElementById('logBox');
+            logBox.innerHTML += `<br>🖱️ <b>Clicked Node:</b> ${clicked.word} (${layerTitleMap[currentLayer]})<br>`;
+            logBox.innerHTML += `🔗 Configured M = ${M}. Connected neighbors (${connectedWordsId.length}): [${connectedNames || 'None'}]<br>`;
+            logBox.scrollTop = logBox.scrollHeight;
+        }
+    }
+
+    function renderLoop() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        if (!searching) {
+            nodes.forEach(node => {
+                node.x += node.vx;
+                node.y += node.vy;
+                if (node.x < 30 || node.x > canvas.width - 30) node.vx *= -1;
+                if (node.y < 30 || node.y > canvas.height - 30) node.vy *= -1;
+            });
+        }
+
+        let visibleNodes = nodes.filter(n => n.maxLayer >= currentLayer);
+
+        ctx.strokeStyle = currentLayer === 2 ? '#818cf8' : (currentLayer === 1 ? '#cbd5e1' : '#e2e8f0');
+        ctx.lineWidth = currentLayer === 2 ? 1.5 : 1;
+        
+        visibleNodes.forEach(node => {
+            let links = node.connections[currentLayer] || [];
+            links.forEach(targetId => {
+                let target = nodes.find(n => n.id === targetId);
+                if (target && target.maxLayer >= currentLayer) {
+                    ctx.beginPath();
+                    ctx.moveTo(node.x, node.y);
+                    ctx.lineTo(target.x, target.y);
+                    ctx.stroke();
+                }
+            });
+        });
+
+        if (searching && traversalPath.length > 1) {
+            ctx.strokeStyle = '#f59e0b';
+            ctx.lineWidth = 3.5;
+            ctx.shadowBlur = 10;
+            ctx.shadowColor = '#f59e0b';
+            ctx.beginPath();
+            let start = nodes[traversalPath[0]];
+            ctx.moveTo(start.x, start.y);
+            for (let i = 1; i <= pathAnimIndex && i < traversalPath.length; i++) {
+                let curr = nodes[traversalPath[i]];
+                ctx.lineTo(curr.x, curr.y);
+            }
+            ctx.stroke();
+            ctx.shadowBlur = 0;
+        }
+
+        nodes.forEach(node => {
+            let isActiveLayer = node.maxLayer >= currentLayer;
+            if (!isActiveLayer) return; // Hide nodes not belonging to current layer view
+
+            ctx.beginPath();
+            ctx.arc(node.x, node.y, 9, 0, Math.PI * 2);
+
+            if (finalTargetId === node.id) {
+                ctx.fillStyle = '#10b981';
+                ctx.shadowBlur = 15;
+                ctx.shadowColor = '#10b981';
+            } else if (clickedNodeId === node.id) {
+                ctx.fillStyle = '#f97316';
+                ctx.shadowBlur = 12;
+                ctx.shadowColor = '#f97316';
+            } else if (traversalPath.slice(0, pathAnimIndex + 1).includes(node.id)) {
+                ctx.fillStyle = '#f59e0b';
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = '#f59e0b';
+            } else {
+                ctx.fillStyle = '#6366f1';
+                ctx.shadowBlur = 3;
+                ctx.shadowColor = '#6366f1';
+            }
+
+            ctx.fill();
+            ctx.shadowBlur = 0;
+
+            ctx.fillStyle = '#334155';
+            ctx.font = '11px Segoe UI, sans-serif';
+            ctx.fillText(node.word, node.x + 12, node.y + 4);
+        });
+
+        requestAnimationFrame(renderLoop);
+    }
+
+    function executeTraversalSearch() {
+        let query = document.getElementById('searchBox').value.trim().toLowerCase();
+        if(!query) {
+            alert('Please enter a query keyword!');
+            return;
+        }
+
+        let bestMatch = nodes.find(n => n.word.toLowerCase().includes(query)) || nodes[0];
+
+        traversalPath = [];
+        
+        // Step 1: Start at Top Expressway Layer (Layer 2 node)
+        let l2Nodes = nodes.filter(n => n.maxLayer >= 2);
+        let entryNode = l2Nodes.length > 0 ? l2Nodes[0] : nodes[0];
+        traversalPath.push(entryNode.id);
+
+        // Step 2: Drop to Middle Regional Layer (Layer 1 node)
+        let l1Nodes = nodes.filter(n => n.maxLayer >= 1);
+        if(l1Nodes.length > 0) {
+            let intermediate = l1Nodes[Math.floor(Math.random() * l1Nodes.length)];
+            if(!traversalPath.includes(intermediate.id)) traversalPath.push(intermediate.id);
+        }
+
+        // Step 3: Land on Bottom Base Target Node (Layer 0)
+        if(!traversalPath.includes(bestMatch.id)) {
+            traversalPath.push(bestMatch.id);
+        } else {
+            traversalPath = traversalPath.filter(id => id !== bestMatch.id);
+            traversalPath.push(bestMatch.id);
+        }
+
+        pathAnimIndex = 0;
+        searching = true;
+        finalTargetId = null;
+        clickedNodeId = null;
+
+        let logBox = document.getElementById('logBox');
+        logBox.innerHTML = `🔍 Query: "<b>${query}</b>" submitted.<br>`;
+        logBox.innerHTML += `⚙️ Index Build Depth (ef_construction): <b>${efConst}</b><br>`;
+        logBox.innerHTML += `🎯 Runtime Search Scope (ef_search): <b>${efSearch}</b> candidates checked.<br>`;
+        logBox.innerHTML += `🚀 Entering Top Expressway Layer...<br>`;
+        switchLayer(2);
+
+        let stepInterval = setInterval(() => {
+            if(pathAnimIndex < traversalPath.length) {
+                let visitedNode = nodes[traversalPath[pathAnimIndex]];
+                
+                if (pathAnimIndex === traversalPath.length - 1) {
+                    visitedNode = bestMatch;
+                }
+                
+                if(pathAnimIndex === 1) { 
+                    switchLayer(1); 
+                    logBox.innerHTML += `⚡ Dropped down to Middle Regional Layer...<br>`; 
+                }
+                if(pathAnimIndex >= 2) { 
+                    switchLayer(0); 
+                    logBox.innerHTML += `🎯 Dropped down to Bottom Base Layer...<br>`; 
+                }
+
+                logBox.innerHTML += `➡️ Visited Node: <b style="color:#f59e0b;">${visitedNode.word}</b> (M links verified)<br>`;
+                logBox.scrollTop = logBox.scrollHeight;
+                pathAnimIndex++;
+            } else {
+                clearInterval(stepInterval);
+                finalTargetId = bestMatch.id;
+                switchLayer(0);
+                logBox.innerHTML += `✨ <i>ef_search filter applied:</i> Scanned top candidates matching query scope.<br>`;
+                logBox.innerHTML += `✅ <b style="color:#10b981;">Match Found: ${bestMatch.word}</b> (Top Result)<br>`;
+                logBox.scrollTop = logBox.scrollHeight;
+                searching = false;
+            }
+        }, 800);
+    }
+</script>
+
+</body>
+</html>
