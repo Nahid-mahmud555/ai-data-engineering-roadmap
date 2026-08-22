@@ -21,7 +21,15 @@ Designed for beginners, students, and developers to intuitively understand how v
   </table>
 </p>
 
+---
 
+## 🎥 Watch the Video Walkthrough
+
+[![Watch the video preview](https://img.shields.io/badge/Watch%20on-YouTube-red?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/HDeYeqB9uWg)
+
+Click the button above or [watch the full video walkthrough on YouTube](https://youtu.be/HDeYeqB9uWg) to see how this interactive visualizer works in action!
+
+---
 
 ## 🚀 Features
 
