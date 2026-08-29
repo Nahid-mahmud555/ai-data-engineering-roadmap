@@ -1,6 +1,6 @@
 # 🚀 AI & Data Engineering Roadmap
 
-Welcome to my personal engineering repository! This roadmap chronicles my hands-on journey, architectural designs, and production-grade implementations in **Cloud Computing, Cybersecurity, DevSecOps, and Artificial Intelligence**.gf
+Welcome to my personal engineering repository! This roadmap chronicles my hands-on journey, architectural designs, and production-grade implementations in **Cloud Computing, Cybersecurity, DevSecOps, and Artificial Intelligence**.
 
 ---
 
