@@ -1,10 +1,10 @@
-# 🚀 AI & Data Engineering Roadmap
+#  AI & Data Engineering Roadmap
 
 Welcome to my personal engineering repository! This roadmap chronicles my hands-on journey, architectural designs, and production-grade implementations in **Cloud Computing, Cybersecurity, DevSecOps, and Artificial Intelligence**.
 
 ---
 
-## 🏗️ Project Modules & Milestones
+##  Project Modules & Milestones
 
 | Milestone | Focus Area | Key Deliverables & Artifacts | Status |
 | :--- | :--- | :--- | :--- |
